@@ -60,7 +60,6 @@ get_overall_stats_filtered_summed_success_max_player = get_overall_stats_filtere
 get_max_intercept_passes = get_overall_stats_filtered.nlargest(1,'Interception')['Team Players'].values.tolist()[0]
 get_overall_stats_filtered_summed_interception_max_player = get_overall_stats_filtered[get_overall_stats_filtered['Team Players'] == get_max_intercept_passes]
 
-st.write(get_overall_stats_filtered_summed_max_player)
 
 with cols[0]:
     st.metric("Player With the Most Pass: "+get_max_passes,str(get_overall_stats_filtered_summed_max_player['Passes'].values.tolist()[0]))
