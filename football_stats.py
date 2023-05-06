@@ -56,16 +56,16 @@ get_max_passes = get_overall_stats_filtered.nlargest(1,'Passes')['Team Players']
 get_overall_stats_filtered_summed_max_player = get_overall_stats_filtered[get_overall_stats_filtered['Team Players'] == get_max_passes]
 
 get_max_success_passes = get_overall_stats_filtered.nlargest(1,'Success Pass')['Team Players'].values.tolist()[0]
-get_overall_stats_filtered_summed_max_player = get_overall_stats_filtered[get_overall_stats_filtered['Team Players'] == get_max_success_passes]
+get_overall_stats_filtered_summed_success_max_player = get_overall_stats_filtered[get_overall_stats_filtered['Team Players'] == get_max_success_passes]
 get_max_intercept_passes = get_overall_stats_filtered.nlargest(1,'Interception')['Team Players'].values.tolist()[0]
-get_overall_stats_filtered_summed_max_player = get_overall_stats_filtered[get_overall_stats_filtered['Team Players'] == get_max_intercept_passes]
+get_overall_stats_filtered_summed_interception_max_player = get_overall_stats_filtered[get_overall_stats_filtered['Team Players'] == get_max_intercept_passes]
 
-
+st.write(get_overall_stats_filtered_summed_max_player)
 
 with cols[0]:
     st.metric("Player With the Most Pass: "+get_max_passes,str(get_overall_stats_filtered_summed_max_player['Passes'].values.tolist()[0]))
-    st.metric("Player With the Most Success Pass: "+get_max_success_passes,str(get_overall_stats_filtered_summed_max_player['Success Pass'].values.tolist()[0]))
-    st.metric("Player With the Most Interception Pass: "+get_max_intercept_passes,str(get_overall_stats_filtered_summed_max_player['Interception'].values.tolist()[0]))
+    st.metric("Player With the Most Success Pass: "+get_max_success_passes,str(get_overall_stats_filtered_summed_success_max_player['Success Pass'].values.tolist()[0]))
+    st.metric("Player With the Most Interception Pass: "+get_max_intercept_passes,str(get_overall_stats_filtered_summed_interception_max_player['Interception'].values.tolist()[0]))
     
 
 
